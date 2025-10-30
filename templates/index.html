@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pakar Rekomendasi Metode Belajar</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f6f9fc; margin: 0; padding: 30px; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 20px 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #2c3e50; }
+        label { font-weight: bold; }
+        select, button { width: 100%; padding: 10px; margin-top: 8px; margin-bottom: 16px; border-radius: 8px; border: 1px solid #ccc; }
+        button { background-color: #3498db; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #2980b9; }
+        ul { background: #ecf5ff; padding: 15px; border-radius: 10px; }
+        li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistem Pakar Rekomendasi Metode Belajar</h1>
+        <form method="POST">
+            <label for="tipe_kepribadian">Tipe Kepribadian:</label>
+            <select name="tipe_kepribadian" id="tipe_kepribadian" required>
+                <option value="">-- Pilih --</option>
+                <option value="visual">Visual</option>
+                <option value="auditori">Auditori</option>
+                <option value="kinestetik">Kinestetik</option>
+            </select>
+
+            <label for="waktu_belajar">Waktu Belajar Favorit:</label>
+            <select name="waktu_belajar" id="waktu_belajar" required>
+                <option value="">-- Pilih --</option>
+                <option value="pagi">Pagi</option>
+                <option value="siang">Siang</option>
+                <option value="malam">Malam</option>
+            </select>
+
+            <label for="kesulitan_belajar">Tingkat Kesulitan Belajar:</label>
+            <select name="kesulitan_belajar" id="kesulitan_belajar" required>
+                <option value="">-- Pilih --</option>
+                <option value="mudah">Mudah</option>
+                <option value="sedang">Sedang</option>
+                <option value="sulit">Sulit</option>
+            </select>
+
+            <button type="submit">Analisa Sekarang</button>
+        </form>
+
+        {% if hasil %}
+        <h2>Hasil Rekomendasi:</h2>
+        <ul>
+            {% for item in hasil %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
